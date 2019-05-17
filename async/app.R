@@ -10,6 +10,8 @@ plan(multiprocess)
 file.remove(dir(pattern = "data[0-9]*\\.csv", recursive = T))
 
 ui <- basicPage(
+  titlePanel("Produce Files from Shiny", "Async"),
+  h4("Asynchronous version", style = "color:orange"),
   selectInput("slc_dataset", "Dataset",
               choices = c("storms", "population", "economics")),
   numericInput("num_repeat", "Repeat Times",
@@ -17,7 +19,10 @@ ui <- basicPage(
   actionButton("btn_write", "Write to CSV"),
   actionButton("btn_praise", "Praise me"),
   verbatimTextOutput("txt_praise"),
+  br(),
   wellPanel(
+    h3("Output Files"),
+    helpText("refreshed automatically every 5 seconds"),
     uiOutput("ui_files_out")
   )
 )
