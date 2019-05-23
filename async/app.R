@@ -3,7 +3,7 @@
 library(tidyverse)
 library(shiny)
 library(future)
-library(promises)
+# library(promises)
 plan(multiprocess)
 
 # clean up previously run results
